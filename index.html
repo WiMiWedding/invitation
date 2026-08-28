@@ -8,10 +8,6 @@
 
     <style>
 
-        /* =========================
-           BASIC
-        ========================= */
-
         * {
             box-sizing: border-box;
         }
@@ -58,7 +54,7 @@
 
 
         /* =========================
-           PAPER SHADOW
+           CARD
         ========================= */
 
         .card-wrapper {
@@ -79,10 +75,6 @@
                 );
         }
 
-
-        /* =========================
-           KRAFT CARD
-        ========================= */
 
         .kraft-card {
 
@@ -440,9 +432,7 @@
 <body>
 
 
-    <!-- ==================================
-         OPEN INVITATION SCREEN
-    ================================== -->
+    <!-- OPEN INVITATION -->
 
     <div id="opening">
 
@@ -468,7 +458,9 @@
                     <button
                         class="open-button"
                         onclick="openInvitation()">
+
                         OPEN INVITATION
+
                     </button>
 
                 </div>
@@ -481,9 +473,7 @@
 
 
 
-    <!-- ==================================
-         CANVA WEBSITE
-    ================================== -->
+    <!-- CANVA WEBSITE -->
 
     <div id="canva-container">
 
@@ -497,9 +487,7 @@
 
 
 
-    <!-- ==================================
-         MUSIC
-    ================================== -->
+    <!-- MUSIC -->
 
     <audio
         id="music"
@@ -526,10 +514,6 @@
 
 
 
-    <!-- ==================================
-         JAVASCRIPT
-    ================================== -->
-
     <script>
 
         const opening =
@@ -547,13 +531,7 @@
 
         function openInvitation() {
 
-            /*
-             * QUAN TRỌNG:
-             * play() được gọi trực tiếp
-             * khi người dùng click.
-             * Vì vậy trình duyệt cho phép
-             * phát nhạc.
-             */
+            /* Start music after user click */
 
             music.play().then(function () {
 
@@ -569,19 +547,14 @@
             });
 
 
-            /*
-             * Bắt đầu animation chiếc thiệp
-             */
+            /* Start card animation */
 
             opening.classList.add(
                 "opening-active"
             );
 
 
-            /*
-             * Sau khoảng 700ms,
-             * bắt đầu hiện Canva
-             */
+            /* Show Canva */
 
             setTimeout(function () {
 
@@ -592,9 +565,7 @@
             }, 650);
 
 
-            /*
-             * Hiện nút điều khiển nhạc
-             */
+            /* Show music control */
 
             setTimeout(function () {
 
