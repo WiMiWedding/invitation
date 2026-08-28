@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Our Wedding</title>
 
     <style>
@@ -28,16 +27,62 @@
             border: none;
             display: block;
         }
+
+        #musicButton {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 9999;
+        }
     </style>
 </head>
 
 <body>
 
-<iframe
-    id="canva"
-    src="https://www.canva.com/design/DAHTjD7R15Q/T8raJw4D5LSIhi0KsgIwBg/view?embed"
-    allowfullscreen>
-</iframe>
+    <!-- Nhạc nền -->
+    <audio id="music" loop>
+        <source src="wedding-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Canva Website -->
+    <iframe
+        id="canva"
+        src="https://www.canva.com/design/DAHTjD7R15Q/T8raJw4D5LSIhi0KsgIwBg/view?embed"
+        allowfullscreen>
+    </iframe>
+
+    <!-- Nút bật/tắt nhạc -->
+    <button id="musicButton" onclick="toggleMusic()">🔊</button>
+
+    <script>
+        const music = document.getElementById("music");
+        const musicButton = document.getElementById("musicButton");
+
+        // Thử phát nhạc
+        window.addEventListener("load", function() {
+            music.play().catch(function() {
+                console.log("Trình duyệt yêu cầu người dùng tương tác trước khi phát nhạc.");
+            });
+        });
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                musicButton.textContent = "🔊";
+            } else {
+                music.pause();
+                musicButton.textContent = "🔇";
+            }
+        }
+    </script>
 
 </body>
 </html>
